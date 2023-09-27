@@ -17,7 +17,7 @@ import { UpdateRoleDto } from './dto/update-role.dto';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { ResponseEntity } from 'src/lib/entities/response.entity';
 import { RoleEntity } from './entities/role.entity';
-import { QueryRoleDto } from './dto/query-tole.dto';
+import { QueryRoleDto } from './dto/query-role.dto';
 import { JwtAuthGuard } from 'src/services/auth/jwt-auth.guard';
 
 @Controller({
