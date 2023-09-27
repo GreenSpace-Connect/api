@@ -9,14 +9,16 @@ import {
   HttpStatus,
   Query,
   NotFoundException,
+  UseGuards,
 } from '@nestjs/common';
 import { RolesService } from './roles.service';
 import { CreateRoleDto } from './dto/create-role.dto';
 import { UpdateRoleDto } from './dto/update-role.dto';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { ResponseEntity } from 'src/lib/entities/response.entity';
 import { RoleEntity } from './entities/role.entity';
 import { QueryRoleDto } from './dto/query-tole.dto';
+import { JwtAuthGuard } from 'src/services/auth/jwt-auth.guard';
 
 @Controller({
   path: 'master-data/roles',
@@ -28,6 +30,8 @@ export class RolesController {
   constructor(private readonly rolesService: RolesService) {}
 
   @Post()
+  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
   async create(@Body() createRoleDto: CreateRoleDto) {
     const role = await this.rolesService.create(createRoleDto);
 
@@ -39,6 +43,8 @@ export class RolesController {
   }
 
   @Get()
+  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
   async findAll(@Query() queryDto: QueryRoleDto) {
     const roles = await this.rolesService.findAll(queryDto);
 
@@ -51,6 +57,8 @@ export class RolesController {
   }
 
   @Get(':id')
+  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
   async findOne(@Param('id') id: string) {
     const role = await this.rolesService.findOne(+id);
 
@@ -66,6 +74,8 @@ export class RolesController {
   }
 
   @Patch(':id')
+  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
   async update(@Param('id') id: string, @Body() updateRoleDto: UpdateRoleDto) {
     const role = await this.rolesService.update(+id, updateRoleDto);
 
@@ -77,6 +87,8 @@ export class RolesController {
   }
 
   @Delete(':id')
+  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
   async remove(@Param('id') id: string) {
     const role = await this.rolesService.remove(+id);
 
