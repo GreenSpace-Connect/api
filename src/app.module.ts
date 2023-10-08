@@ -8,7 +8,8 @@ import { AuthModule } from './services/auth/auth.module';
 import { CitiesModule } from './services/master-data/regions/cities/cities.module';
 import { ProvincesModule } from './services/master-data/regions/provinces/provinces.module';
 import { DistrictsModule } from './services/master-data/regions/districts/districts.module';
-import { GreenPlacesModule } from './green-places/green-places.module';
+import { CommunitiesModule } from './services/master-data/communities/communities.module';
+import { GreenPlacesModule } from './services/master-data/green-places/green-places.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { GreenPlacesModule } from './green-places/green-places.module';
     CitiesModule,
     DistrictsModule,
     GreenPlacesModule,
+    CommunitiesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
