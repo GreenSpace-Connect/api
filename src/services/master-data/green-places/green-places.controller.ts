@@ -21,7 +21,7 @@ import { QueryGreenPlaceDto } from './dto/query-green-place.dto';
 import { JwtAuthGuard } from 'src/services/auth/jwt-auth.guard';
 
 @Controller({
-  path: 'master-data/greenPlaces',
+  path: 'master-data/green-places',
   version: ['1.0.0'],
 })
 @ApiTags('greenPlaces')

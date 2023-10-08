@@ -10,6 +10,7 @@ import { ProvincesModule } from './services/master-data/regions/provinces/provin
 import { DistrictsModule } from './services/master-data/regions/districts/districts.module';
 import { CommunitiesModule } from './services/master-data/communities/communities.module';
 import { GreenPlacesModule } from './services/master-data/green-places/green-places.module';
+import { CommunityUserModule } from './community-user/community-user.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { GreenPlacesModule } from './services/master-data/green-places/green-pla
     DistrictsModule,
     GreenPlacesModule,
     CommunitiesModule,
+    CommunityUserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
