@@ -6,4 +6,9 @@ export class CreateBasecampDto {
   @IsNotEmpty()
   @ApiProperty()
   communityId: number;
+
+  @IsNumber()
+  @IsNotEmpty()
+  @ApiProperty()
+  greenPlaceId: number;
 }

@@ -2,18 +2,21 @@ import { ApiProperty } from '@nestjs/swagger';
 import { CommunityUser } from '@prisma/client';
 import { UserEntity } from '../../users/entities/user.entity';
 import { CommunityEntity } from '../../communities/entities/community.entity';
+import { Exclude } from 'class-transformer';
 
 export class CommunityUserEntity implements CommunityUser {
   @ApiProperty()
   id: number;
 
   @ApiProperty()
+  @Exclude()
   userId: number;
 
   @ApiProperty()
   user: UserEntity;
 
   @ApiProperty()
+  @Exclude()
   communityId: number;
 
   @ApiProperty()
