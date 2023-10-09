@@ -24,6 +24,7 @@ model User {
   deletedAt     DateTime?
   community     Community[]
   CommunityUser CommunityUser[]
+  Comment       Comment[]
 }
 
 model Role {
@@ -96,57 +97,89 @@ model CommunityUser {
 }
 
 model GreenPlace {
-  id         Int       @id @default(autoincrement())
+  id         Int        @id @default(autoincrement())
   name       String
   provinceId Int
-  province   Province  @relation(fields: [provinceId], references: [id])
+  province   Province   @relation(fields: [provinceId], references: [id])
   cityId     Int
-  city       City      @relation(fields: [cityId], references: [id])
+  city       City       @relation(fields: [cityId], references: [id])
   districtId Int
-  district   District  @relation(fields: [districtId], references: [id])
+  district   District   @relation(fields: [districtId], references: [id])
   address    String
   latitude   String
   longitude  String
-  createdAt  DateTime  @default(now())
-  updatedAt  DateTime  @updatedAt
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
   deletedAt  DateTime?
+  Basecamp   Basecamp[]
 }
 
 model Basecamp {
-  id          Int       @id @default(autoincrement())
-  communityId Int
-  community   Community @relation(fields: [communityId], references: [id])
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-  deletedAt   DateTime?
+  id           Int        @id @default(autoincrement())
+  communityId  Int
+  community    Community  @relation(fields: [communityId], references: [id])
+  greenPlaceId Int
+  greenPlace   GreenPlace @relation(fields: [greenPlaceId], references: [id])
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  deletedAt    DateTime?
 }
 
 model Event {
-  id          Int       @id @default(autoincrement())
+  id          Int        @id @default(autoincrement())
   name        String
-  description String    @db.Text
+  description String     @db.Text
   thumbnail   String
   communityId Int
-  community   Community @relation(fields: [communityId], references: [id])
+  community   Community  @relation(fields: [communityId], references: [id])
   provinceId  Int
-  province    Province  @relation(fields: [provinceId], references: [id])
+  province    Province   @relation(fields: [provinceId], references: [id])
   cityId      Int
-  city        City      @relation(fields: [cityId], references: [id])
+  city        City       @relation(fields: [cityId], references: [id])
   districtId  Int
-  district    District  @relation(fields: [districtId], references: [id])
+  district    District   @relation(fields: [districtId], references: [id])
   address     String
   latitude    String
   longitude   String
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  schedule    DateTime
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
   deletedAt   DateTime?
   ticket      Ticket[]
+  Donation    Donation[]
+  Comment     Comment[]
 }
 
 model Ticket {
   id        Int       @id @default(autoincrement())
   name      String
   price     Float
+  eventId   Int
+  event     Event     @relation(fields: [eventId], references: [id])
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+}
+
+model Donation {
+  id             Int       @id @default(autoincrement())
+  name           String
+  description    String    @db.Text
+  startDate      DateTime
+  endDate        DateTime
+  expectDonation Float
+  eventId        Int
+  event          Event     @relation(fields: [eventId], references: [id])
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  deletedAt      DateTime?
+}
+
+model Comment {
+  id        Int       @id @default(autoincrement())
+  message   String    @db.Text
+  userId    Int
+  user      User      @relation(fields: [userId], references: [id])
   eventId   Int
   event     Event     @relation(fields: [eventId], references: [id])
   createdAt DateTime  @default(now())
