@@ -13,6 +13,7 @@ import { GreenPlacesModule } from './services/master-data/green-places/green-pla
 import { CommunityUserModule } from './services/master-data/community-user/community-user.module';
 import { BasecampsModule } from './services/master-data/basecamps/basecamps.module';
 import { EventsModule } from './services/master-data/events/events.module';
+import { TicketsModule } from './services/master-data/tickets/tickets.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { EventsModule } from './services/master-data/events/events.module';
     CommunityUserModule,
     BasecampsModule,
     EventsModule,
+    TicketsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
