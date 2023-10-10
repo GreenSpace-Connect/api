@@ -23,4 +23,15 @@ export class AuthController {
       data: auth,
     });
   }
+
+  @Post('login-as-admin')
+  async loginAsAdmin(@Body() { email, password }: LoginDto) {
+    const auth = await this.authService.loginAsAdmin(email, password);
+
+    return new ResponseEntity({
+      statusCode: HttpStatus.OK,
+      message: 'success',
+      data: auth,
+    });
+  }
 }

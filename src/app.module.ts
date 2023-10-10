@@ -14,6 +14,7 @@ import { CommunityUserModule } from './services/master-data/community-user/commu
 import { BasecampsModule } from './services/master-data/basecamps/basecamps.module';
 import { EventsModule } from './services/master-data/events/events.module';
 import { TicketsModule } from './services/master-data/tickets/tickets.module';
+import { CommentsModule } from './services/master-data/comments/comments.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { TicketsModule } from './services/master-data/tickets/tickets.module';
     BasecampsModule,
     EventsModule,
     TicketsModule,
+    CommentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
