@@ -16,7 +16,9 @@ export class UserSeeder {
       ...Object.values(Role).map((role) => {
         return this.prisma.role.upsert({
           where: { name: role },
-          update: {},
+          update: {
+            name: role,
+          },
           create: {
             name: role,
           },
@@ -37,7 +39,12 @@ export class UserSeeder {
       where: {
         email: 'admin@greenspace.com',
       },
-      update: {},
+      update: {
+        email: 'admin@greenspace.com',
+        fullname: 'Admin',
+        password: password,
+        roleId: adminRole.id,
+      },
       create: {
         email: 'admin@greenspace.com',
         fullname: 'Admin',
@@ -54,7 +61,12 @@ export class UserSeeder {
       where: {
         email: 'user@greenspace.com',
       },
-      update: {},
+      update: {
+        email: 'user@greenspace.com',
+        fullname: 'User',
+        password: password,
+        roleId: userRole.id,
+      },
       create: {
         email: 'user@greenspace.com',
         fullname: 'User',
