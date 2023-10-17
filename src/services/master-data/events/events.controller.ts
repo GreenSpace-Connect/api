@@ -15,7 +15,7 @@ import { EventsService } from './events.service';
 import { CreateEventDto } from './dto/create-event.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { ResponseEntity } from 'src/lib/entities/response.entity';
+import { ResponseEntity } from 'src/utils/entities/response.entity';
 import { EventEntity } from './entities/event.entity';
 import { QueryEventDto } from './dto/query-event.dto';
 import { JwtAuthGuard } from 'src/services/auth/jwt-auth.guard';

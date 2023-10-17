@@ -3,11 +3,14 @@ import { OrderBy } from '../enums/order-by.enum';
 import {
   PaginatorLimit,
   PaginatorLimitArray,
-} from 'src/lib/enums/paginator-limit.enum';
-import { InArray } from 'src/lib/validators/in-array.validator';
-import { OrderType } from 'src/lib/enums/order-type.enum';
+} from 'src/utils/enums/paginator-limit.enum';
+import { InArray } from 'src/utils/validators/in-array.validator';
+import { OrderType } from 'src/utils/enums/order-type.enum';
+import { Transform } from 'class-transformer';
+import { toNumber } from 'src/utils/helper/cast.helper';
 
 export class QueryRoleDto {
+  @Transform(({ value }) => toNumber(value, { default: 1, min: 1 }))
   @IsNumber()
   @IsOptional()
   page?: number;

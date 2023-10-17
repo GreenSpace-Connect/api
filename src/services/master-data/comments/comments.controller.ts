@@ -15,7 +15,7 @@ import { CommentsService } from './comments.service';
 import { CreateCommentDto } from './dto/create-comment.dto';
 import { UpdateCommentDto } from './dto/update-comment.dto';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { ResponseEntity } from 'src/lib/entities/response.entity';
+import { ResponseEntity } from 'src/utils/entities/response.entity';
 import { CommentEntity } from './entities/comment.entity';
 import { QueryCommentDto } from './dto/query-comment.dto';
 import { JwtAuthGuard } from 'src/services/auth/jwt-auth.guard';

@@ -15,7 +15,7 @@ import { TicketsService } from './tickets.service';
 import { CreateTicketDto } from './dto/create-ticket.dto';
 import { UpdateTicketDto } from './dto/update-ticket.dto';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { ResponseEntity } from 'src/lib/entities/response.entity';
+import { ResponseEntity } from 'src/utils/entities/response.entity';
 import { TicketEntity } from './entities/ticket.entity';
 import { QueryTicketDto } from './dto/query-ticket.dto';
 import { JwtAuthGuard } from 'src/services/auth/jwt-auth.guard';

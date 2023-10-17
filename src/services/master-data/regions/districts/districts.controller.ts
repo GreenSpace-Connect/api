@@ -15,7 +15,7 @@ import { DistrictsService } from './districts.service';
 import { CreateDistrictDto } from './dto/create-district.dto';
 import { UpdateDistrictDto } from './dto/update-district.dto';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { ResponseEntity } from 'src/lib/entities/response.entity';
+import { ResponseEntity } from 'src/utils/entities/response.entity';
 import { DistrictEntity } from './entities/district.entity';
 import { QueryDistrictDto } from './dto/query-district.dto';
 import { JwtAuthGuard } from 'src/services/auth/jwt-auth.guard';

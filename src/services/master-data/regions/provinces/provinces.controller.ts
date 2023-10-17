@@ -15,7 +15,7 @@ import { ProvincesService } from './provinces.service';
 import { CreateProvinceDto } from './dto/create-province.dto';
 import { UpdateProvinceDto } from './dto/update-province.dto';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { ResponseEntity } from 'src/lib/entities/response.entity';
+import { ResponseEntity } from 'src/utils/entities/response.entity';
 import { ProvinceEntity } from './entities/province.entity';
 import { QueryProvinceDto } from './dto/query-province.dto';
 import { JwtAuthGuard } from 'src/services/auth/jwt-auth.guard';

@@ -15,7 +15,7 @@ import { BasecampsService } from './basecamps.service';
 import { CreateBasecampDto } from './dto/create-basecamp.dto';
 import { UpdateBasecampDto } from './dto/update-basecamp.dto';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { ResponseEntity } from 'src/lib/entities/response.entity';
+import { ResponseEntity } from 'src/utils/entities/response.entity';
 import { BasecampEntity } from './entities/basecamp.entity';
 import { QueryBasecampDto } from './dto/query-basecamp.dto';
 import { JwtAuthGuard } from 'src/services/auth/jwt-auth.guard';

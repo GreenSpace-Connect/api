@@ -6,9 +6,9 @@ import {
 import { JwtService } from '@nestjs/jwt';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { AuthEntity } from './entities/login.entity';
-import { comparePassword } from 'src/lib/helper/hash.helper';
+import { comparePassword } from 'src/utils/helper/hash.helper';
 import { UserEntity } from '../master-data/users/entities/user.entity';
-import { Role } from 'src/lib/enums/role.enum';
+import { Role } from 'src/utils/enums/role.enum';
 
 @Injectable()
 export class AuthService {

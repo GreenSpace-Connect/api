@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import { info } from 'console';
-import { Role } from '../../src/lib/enums/role.enum';
-import { hashPassword } from '../../src/lib/helper/hash.helper';
+import { Role } from '../../src/utils/enums/role.enum';
+import { hashPassword } from '../../src/utils/helper/hash.helper';
 
 export class UserSeeder {
   private readonly prisma: PrismaClient;

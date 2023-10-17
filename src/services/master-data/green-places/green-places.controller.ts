@@ -15,7 +15,7 @@ import { GreenPlacesService } from './green-places.service';
 import { CreateGreenPlaceDto } from './dto/create-green-place.dto';
 import { UpdateGreenPlaceDto } from './dto/update-green-place.dto';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { ResponseEntity } from 'src/lib/entities/response.entity';
+import { ResponseEntity } from 'src/utils/entities/response.entity';
 import { GreenPlaceEntity } from './entities/green-place.entity';
 import { QueryGreenPlaceDto } from './dto/query-green-place.dto';
 import { JwtAuthGuard } from 'src/services/auth/jwt-auth.guard';

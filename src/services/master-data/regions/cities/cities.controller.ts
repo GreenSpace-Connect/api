@@ -15,7 +15,7 @@ import { CitiesService } from './cities.service';
 import { CreateCityDto } from './dto/create-city.dto';
 import { UpdateCityDto } from './dto/update-city.dto';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { ResponseEntity } from 'src/lib/entities/response.entity';
+import { ResponseEntity } from 'src/utils/entities/response.entity';
 import { CityEntity } from './entities/city.entity';
 import { QueryCityDto } from './dto/query-city.dto';
 import { JwtAuthGuard } from 'src/services/auth/jwt-auth.guard';
