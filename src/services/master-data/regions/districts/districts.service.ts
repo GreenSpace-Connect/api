@@ -33,6 +33,13 @@ export class DistrictsService {
     const districts = await paginate(this.prisma.district, {
       where,
       orderBy: queryDto.getOrderBy,
+      include: {
+        city: {
+          include: {
+            province: true,
+          },
+        },
+      },
     });
 
     return districts;
@@ -41,6 +48,13 @@ export class DistrictsService {
   async findOne(id: number) {
     const district = await this.prisma.district.findUnique({
       where: { id },
+      include: {
+        city: {
+          include: {
+            province: true,
+          },
+        },
+      },
     });
 
     return district;

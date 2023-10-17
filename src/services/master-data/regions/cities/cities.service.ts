@@ -33,6 +33,9 @@ export class CitiesService {
     const cities = await paginate(this.prisma.city, {
       where,
       orderBy: queryDto.getOrderBy,
+      include: {
+        province: true,
+      },
     });
 
     return cities;
@@ -41,6 +44,9 @@ export class CitiesService {
   async findOne(id: number) {
     const city = await this.prisma.city.findUnique({
       where: { id },
+      include: {
+        province: true,
+      },
     });
 
     return city;

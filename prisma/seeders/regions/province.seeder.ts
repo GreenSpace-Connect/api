@@ -31,7 +31,10 @@ export class ProvinceSeeder {
           try {
             await this.prisma.province.upsert({
               where: { id: +province.id },
-              update: {},
+              update: {
+                id: +province.id,
+                name: province.name,
+              },
               create: {
                 id: +province.id,
                 name: province.name,
