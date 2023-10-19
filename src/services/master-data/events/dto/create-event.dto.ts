@@ -40,6 +40,11 @@ export class CreateEventDto {
   @IsString()
   @IsNotEmpty()
   @ApiProperty()
+  placeName: string;
+
+  @IsString()
+  @IsNotEmpty()
+  @ApiProperty()
   address: string;
 
   @IsString()

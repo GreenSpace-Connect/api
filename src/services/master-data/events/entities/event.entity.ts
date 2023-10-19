@@ -48,6 +48,9 @@ export class EventEntity implements Event {
   district?: DistrictEntity;
 
   @ApiProperty()
+  placeName: string;
+
+  @ApiProperty()
   address: string;
 
   @ApiProperty()

@@ -33,6 +33,12 @@ export class EventsService {
     const events = await paginate(this.prisma.event, {
       where,
       orderBy: queryDto.getOrderBy,
+      include: {
+        province: true,
+        city: true,
+        district: true,
+        community: true,
+      },
     });
 
     return events;
@@ -41,6 +47,12 @@ export class EventsService {
   async findOne(id: number) {
     const event = await this.prisma.event.findUnique({
       where: { id },
+      include: {
+        province: true,
+        city: true,
+        district: true,
+        community: true,
+      },
     });
 
     return event;

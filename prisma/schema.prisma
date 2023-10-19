@@ -112,8 +112,8 @@ model GreenPlace {
   createdAt  DateTime    @default(now())
   updatedAt  DateTime    @updatedAt
   deletedAt  DateTime?
-  Basecamp   Basecamp[]
-  Complaint  Complaint[]
+  basecamp   Basecamp[]
+  complaint  Complaint[]
 }
 
 model Basecamp {
@@ -140,6 +140,7 @@ model Event {
   city        City       @relation(fields: [cityId], references: [id])
   districtId  Int
   district    District   @relation(fields: [districtId], references: [id])
+  placeName   String
   address     String
   latitude    String
   longitude   String
@@ -148,8 +149,8 @@ model Event {
   updatedAt   DateTime   @updatedAt
   deletedAt   DateTime?
   ticket      Ticket[]
-  Donation    Donation[]
-  Comment     Comment[]
+  donation    Donation[]
+  comment     Comment[]
 }
 
 model Ticket {
