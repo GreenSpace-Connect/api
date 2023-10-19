@@ -18,7 +18,7 @@ export class TicketEntity implements Ticket {
   eventId: number;
 
   @ApiProperty()
-  event: EventEntity;
+  event?: EventEntity;
 
   @ApiProperty()
   createdAt: Date;

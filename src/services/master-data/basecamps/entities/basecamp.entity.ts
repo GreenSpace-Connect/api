@@ -13,14 +13,14 @@ export class BasecampEntity implements Basecamp {
   communityId: number;
 
   @ApiProperty()
-  community: CommunityEntity;
+  community?: CommunityEntity;
 
   @ApiProperty()
   @Exclude()
   greenPlaceId: number;
 
   @ApiProperty()
-  greenPlace: GreenPlaceEntity;
+  greenPlace?: GreenPlaceEntity;
 
   @ApiProperty()
   createdAt: Date;

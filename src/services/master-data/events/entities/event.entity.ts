@@ -24,28 +24,28 @@ export class EventEntity implements Event {
   communityId: number;
 
   @ApiProperty()
-  community: CommunityEntity;
+  community?: CommunityEntity;
 
   @ApiProperty()
   @Exclude()
   provinceId: number;
 
   @ApiProperty()
-  province: ProvinceEntity;
+  province?: ProvinceEntity;
 
   @ApiProperty()
   @Exclude()
   cityId: number;
 
   @ApiProperty()
-  city: CityEntity;
+  city?: CityEntity;
 
   @ApiProperty()
   @Exclude()
   districtId: number;
 
   @ApiProperty()
-  district: DistrictEntity;
+  district?: DistrictEntity;
 
   @ApiProperty()
   address: string;

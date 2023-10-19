@@ -15,7 +15,7 @@ export class DistrictEntity implements District {
   cityId: number;
 
   @ApiProperty()
-  city: CityEntity;
+  city?: CityEntity;
 
   @ApiProperty()
   createdAt: Date;

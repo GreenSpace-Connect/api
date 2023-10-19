@@ -33,6 +33,9 @@ export class CommunitiesService {
     const communities = await paginate(this.prisma.community, {
       where,
       orderBy: queryDto.getOrderBy,
+      include: {
+        pic: true,
+      },
     });
 
     return communities;
@@ -41,6 +44,9 @@ export class CommunitiesService {
   async findOne(id: number) {
     const community = await this.prisma.community.findUnique({
       where: { id },
+      include: {
+        pic: true,
+      },
     });
 
     return community;

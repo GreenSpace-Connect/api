@@ -15,7 +15,7 @@ export class CommunityEntity implements Community {
   picId: number;
 
   @ApiProperty()
-  pic: UserEntity;
+  pic?: UserEntity;
 
   @ApiProperty()
   createdAt: Date;

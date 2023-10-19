@@ -16,14 +16,14 @@ export class CommentEntity implements Comment {
   userId: number;
 
   @ApiProperty()
-  user: UserEntity;
+  user?: UserEntity;
 
   @ApiProperty()
   @Exclude()
   eventId: number;
 
   @ApiProperty()
-  event: EventEntity;
+  event?: EventEntity;
 
   @ApiProperty()
   createdAt: Date;

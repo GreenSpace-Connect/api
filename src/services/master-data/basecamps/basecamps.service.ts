@@ -32,6 +32,10 @@ export class BasecampsService {
     const basecamps = await paginate(this.prisma.basecamp, {
       where,
       orderBy: queryDto.getOrderBy,
+      include: {
+        community: true,
+        greenPlace: true,
+      },
     });
 
     return basecamps;
@@ -40,6 +44,14 @@ export class BasecampsService {
   async findOne(id: number) {
     const basecamp = await this.prisma.basecamp.findUnique({
       where: { id },
+      include: {
+        community: {
+          include: {
+            pic: true,
+          },
+        },
+        greenPlace: true,
+      },
     });
 
     return basecamp;

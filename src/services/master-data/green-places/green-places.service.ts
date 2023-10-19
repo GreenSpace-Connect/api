@@ -33,6 +33,11 @@ export class GreenPlacesService {
     const greenPlaces = await paginate(this.prisma.greenPlace, {
       where,
       orderBy: queryDto.getOrderBy,
+      include: {
+        province: true,
+        city: true,
+        district: true,
+      },
     });
 
     return greenPlaces;
@@ -41,6 +46,11 @@ export class GreenPlacesService {
   async findOne(id: number) {
     const greenPlace = await this.prisma.greenPlace.findUnique({
       where: { id },
+      include: {
+        province: true,
+        city: true,
+        district: true,
+      },
     });
 
     return greenPlace;

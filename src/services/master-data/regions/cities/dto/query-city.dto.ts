@@ -30,6 +30,10 @@ export class QueryCityDto {
   @IsOptional()
   search?: string;
 
+  @IsOptional()
+  @Transform(({ value }) => toNumber(value, { default: 1, min: 1 }))
+  provinceId?: number;
+
   get getOrderBy() {
     if (this.orderBy) {
       return {

@@ -17,21 +17,21 @@ export class GreenPlaceEntity implements GreenPlace {
   provinceId: number;
 
   @ApiProperty()
-  province: ProvinceEntity;
+  province?: ProvinceEntity;
 
   @ApiProperty()
   @Exclude()
   cityId: number;
 
   @ApiProperty()
-  city: CityEntity;
+  city?: CityEntity;
 
   @ApiProperty()
   @Exclude()
   districtId: number;
 
   @ApiProperty()
-  district: DistrictEntity;
+  district?: DistrictEntity;
 
   @ApiProperty()
   address: string;
@@ -59,11 +59,11 @@ export class GreenPlaceEntity implements GreenPlace {
     }
 
     if (partial.city) {
-      this.province = new ProvinceEntity(partial.city);
+      this.city = new CityEntity(partial.city);
     }
 
     if (partial.district) {
-      this.province = new ProvinceEntity(partial.district);
+      this.district = new DistrictEntity(partial.district);
     }
   }
 }

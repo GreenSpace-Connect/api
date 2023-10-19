@@ -24,6 +24,9 @@ export class CitiesService {
     if (queryDto.search) {
       where.OR = [{ name: { contains: queryDto.search, mode: 'insensitive' } }];
     }
+    if (queryDto.provinceId) {
+      where.provinceId = queryDto.provinceId;
+    }
 
     const paginate = createPaginator({
       perPage: queryDto.perPage,

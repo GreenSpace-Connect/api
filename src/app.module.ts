@@ -10,7 +10,7 @@ import { ProvincesModule } from './services/master-data/regions/provinces/provin
 import { DistrictsModule } from './services/master-data/regions/districts/districts.module';
 import { CommunitiesModule } from './services/master-data/communities/communities.module';
 import { GreenPlacesModule } from './services/master-data/green-places/green-places.module';
-import { CommunityUserModule } from './services/master-data/community-user/community-user.module';
+import { CommunityUserModule } from './services/master-data/community-users/community-user.module';
 import { BasecampsModule } from './services/master-data/basecamps/basecamps.module';
 import { EventsModule } from './services/master-data/events/events.module';
 import { TicketsModule } from './services/master-data/tickets/tickets.module';

@@ -15,7 +15,7 @@ export class CityEntity implements City {
   provinceId: number;
 
   @ApiProperty()
-  province: ProvinceEntity;
+  province?: ProvinceEntity;
 
   @ApiProperty()
   createdAt: Date;
@@ -29,7 +29,7 @@ export class CityEntity implements City {
   constructor(partial: Partial<CityEntity>) {
     Object.assign(this, partial);
 
-    if (partial.province) {
+    if (partial?.province) {
       this.province = new ProvinceEntity(partial.province);
     }
   }

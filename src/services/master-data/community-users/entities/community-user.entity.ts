@@ -13,14 +13,14 @@ export class CommunityUserEntity implements CommunityUser {
   userId: number;
 
   @ApiProperty()
-  user: UserEntity;
+  user?: UserEntity;
 
   @ApiProperty()
   @Exclude()
   communityId: number;
 
   @ApiProperty()
-  community: CommunityEntity;
+  community?: CommunityEntity;
 
   @ApiProperty()
   createdAt: Date;

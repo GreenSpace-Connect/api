@@ -24,6 +24,9 @@ export class DistrictsService {
     if (queryDto.search) {
       where.OR = [{ name: { contains: queryDto.search, mode: 'insensitive' } }];
     }
+    if (queryDto.cityId) {
+      where.cityId = queryDto.cityId;
+    }
 
     const paginate = createPaginator({
       perPage: queryDto.perPage,

@@ -32,6 +32,10 @@ export class CommunityUserService {
     const communityUsers = await paginate(this.prisma.communityUser, {
       where,
       orderBy: queryDto.getOrderBy,
+      include: {
+        community: true,
+        user: true,
+      },
     });
 
     return communityUsers;
@@ -40,6 +44,10 @@ export class CommunityUserService {
   async findOne(id: number) {
     const communityUser = await this.prisma.communityUser.findUnique({
       where: { id },
+      include: {
+        community: true,
+        user: true,
+      },
     });
 
     return communityUser;
