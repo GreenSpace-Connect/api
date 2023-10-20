@@ -30,6 +30,18 @@ export class QueryGreenPlaceDto {
   @IsOptional()
   search?: string;
 
+  @Transform(({ value }) => toNumber(value, { default: 1, min: 1 }))
+  @IsOptional()
+  provinceId?: number;
+
+  @Transform(({ value }) => toNumber(value, { default: 1, min: 1 }))
+  @IsOptional()
+  cityId?: number;
+
+  @Transform(({ value }) => toNumber(value, { default: 1, min: 1 }))
+  @IsOptional()
+  districtId?: number;
+
   get getOrderBy() {
     if (this.orderBy) {
       return {

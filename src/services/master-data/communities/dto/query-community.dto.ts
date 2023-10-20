@@ -30,6 +30,10 @@ export class QueryCommunityDto {
   @IsOptional()
   search?: string;
 
+  @Transform(({ value }) => toNumber(value, { default: 1, min: 1 }))
+  @IsOptional()
+  picId?: number;
+
   get getOrderBy() {
     if (this.orderBy) {
       return {

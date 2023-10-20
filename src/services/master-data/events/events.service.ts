@@ -24,6 +24,18 @@ export class EventsService {
     if (queryDto.search) {
       where.OR = [{ name: { contains: queryDto.search, mode: 'insensitive' } }];
     }
+    if (queryDto.communityId) {
+      where.communityId = queryDto.communityId;
+    }
+    if (queryDto.provinceId) {
+      where.provinceId = queryDto.provinceId;
+    }
+    if (queryDto.cityId) {
+      where.cityId = queryDto.cityId;
+    }
+    if (queryDto.districtId) {
+      where.districtId = queryDto.districtId;
+    }
 
     const paginate = createPaginator({
       perPage: queryDto.perPage,

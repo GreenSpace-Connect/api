@@ -30,6 +30,14 @@ export class QueryComplaintDto {
   @IsOptional()
   search?: string;
 
+  @Transform(({ value }) => toNumber(value, { default: 1, min: 1 }))
+  @IsOptional()
+  greenPlaceId?: number;
+
+  @Transform(({ value }) => toNumber(value, { default: 1, min: 1 }))
+  @IsOptional()
+  userId?: number;
+
   get getOrderBy() {
     if (this.orderBy) {
       return {

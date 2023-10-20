@@ -27,6 +27,9 @@ export class UsersService {
         { email: { contains: queryDto.search, mode: 'insensitive' } },
       ];
     }
+    if (queryDto.roleId) {
+      where.roleId = queryDto.roleId;
+    }
 
     const paginate = createPaginator({
       perPage: queryDto.perPage,

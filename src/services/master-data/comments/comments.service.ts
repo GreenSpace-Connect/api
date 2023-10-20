@@ -21,7 +21,11 @@ export class CommentsService {
   async findAll(queryDto: QueryCommentDto) {
     // Query conditions
     const where: Prisma.CommentWhereInput = {};
-    if (queryDto.search) {
+    if (queryDto.userId) {
+      where.userId = queryDto.userId;
+    }
+    if (queryDto.eventId) {
+      where.eventId = queryDto.eventId;
     }
 
     const paginate = createPaginator({

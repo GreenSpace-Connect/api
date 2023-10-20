@@ -27,6 +27,12 @@ export class ComplaintsService {
         { description: { contains: queryDto.search, mode: 'insensitive' } },
       ];
     }
+    if (queryDto.greenPlaceId) {
+      where.greenPlaceId = queryDto.greenPlaceId;
+    }
+    if (queryDto.userId) {
+      where.userId = queryDto.userId;
+    }
 
     const paginate = createPaginator({
       perPage: queryDto.perPage,

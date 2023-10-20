@@ -30,6 +30,14 @@ export class QueryCommentDto {
   @IsOptional()
   search?: string;
 
+  @Transform(({ value }) => toNumber(value, { default: 1, min: 1 }))
+  @IsOptional()
+  userId?: number;
+
+  @Transform(({ value }) => toNumber(value, { default: 1, min: 1 }))
+  @IsOptional()
+  eventId?: number;
+
   get getOrderBy() {
     if (this.orderBy) {
       return {

@@ -30,6 +30,14 @@ export class QueryCommunityUserDto {
   @IsOptional()
   search?: string;
 
+  @Transform(({ value }) => toNumber(value, { default: 1, min: 1 }))
+  @IsOptional()
+  userId?: number;
+
+  @Transform(({ value }) => toNumber(value, { default: 1, min: 1 }))
+  @IsOptional()
+  communityId?: number;
+
   get getOrderBy() {
     if (this.orderBy) {
       return {

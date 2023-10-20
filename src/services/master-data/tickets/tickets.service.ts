@@ -24,6 +24,9 @@ export class TicketsService {
     if (queryDto.search) {
       where.OR = [{ name: { contains: queryDto.search, mode: 'insensitive' } }];
     }
+    if (queryDto.eventId) {
+      where.eventId = queryDto.eventId;
+    }
 
     const paginate = createPaginator({
       perPage: queryDto.perPage,

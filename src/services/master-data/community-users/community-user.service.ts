@@ -21,7 +21,11 @@ export class CommunityUserService {
   async findAll(queryDto: QueryCommunityUserDto) {
     // Query conditions
     const where: Prisma.CommunityUserWhereInput = {};
-    if (queryDto.search) {
+    if (queryDto.userId) {
+      where.userId = queryDto.userId;
+    }
+    if (queryDto.communityId) {
+      where.communityId = queryDto.communityId;
     }
 
     const paginate = createPaginator({

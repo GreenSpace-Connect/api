@@ -21,7 +21,11 @@ export class BasecampsService {
   async findAll(queryDto: QueryBasecampDto) {
     // Query conditions
     const where: Prisma.BasecampWhereInput = {};
-    if (queryDto.search) {
+    if (queryDto.communityId) {
+      where.communityId = queryDto.communityId;
+    }
+    if (queryDto.greenPlaceId) {
+      where.communityId = queryDto.greenPlaceId;
     }
 
     const paginate = createPaginator({

@@ -24,6 +24,9 @@ export class CommunitiesService {
     if (queryDto.search) {
       where.OR = [{ name: { contains: queryDto.search, mode: 'insensitive' } }];
     }
+    if (queryDto.picId) {
+      where.picId = queryDto.picId;
+    }
 
     const paginate = createPaginator({
       perPage: queryDto.perPage,
