@@ -36,6 +36,10 @@ export class CommentsService {
     const comments = await paginate(this.prisma.comment, {
       where,
       orderBy: queryDto.getOrderBy,
+      include: {
+        event: true,
+        user: true,
+      },
     });
 
     return comments;
@@ -44,6 +48,10 @@ export class CommentsService {
   async findOne(id: number) {
     const comment = await this.prisma.comment.findUnique({
       where: { id },
+      include: {
+        event: true,
+        user: true,
+      },
     });
 
     return comment;
