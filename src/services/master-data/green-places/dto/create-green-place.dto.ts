@@ -1,11 +1,16 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 
 export class CreateGreenPlaceDto {
   @IsString()
   @IsNotEmpty()
   @ApiProperty()
   name: string;
+
+  @IsOptional()
+  @IsString()
+  @ApiProperty()
+  description: string;
 
   @IsNumber()
   @IsNotEmpty()

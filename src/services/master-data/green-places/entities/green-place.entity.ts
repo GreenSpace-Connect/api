@@ -13,6 +13,9 @@ export class GreenPlaceEntity implements GreenPlace {
   name: string;
 
   @ApiProperty()
+  description: string;
+
+  @ApiProperty()
   @Exclude()
   provinceId: number;
 

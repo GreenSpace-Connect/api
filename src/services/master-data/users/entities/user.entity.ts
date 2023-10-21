@@ -2,7 +2,6 @@ import { ApiProperty } from '@nestjs/swagger';
 import { User } from '@prisma/client';
 import { Exclude } from 'class-transformer';
 import { RoleEntity } from '../../roles/entities/role.entity';
-import { IsOptional } from 'class-validator';
 
 export class UserEntity implements User {
   @ApiProperty()

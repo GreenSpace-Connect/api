@@ -17,6 +17,8 @@ import { TicketsModule } from './services/master-data/tickets/tickets.module';
 import { CommentsModule } from './services/master-data/comments/comments.module';
 import { ComplaintsModule } from './services/master-data/complaints/complaints.module';
 import { DonationsModule } from './services/master-data/donations/donations.module';
+import { DonationTransactionsModule } from './services/master-data/donation-transactions/donation-transactions.module';
+import { TicketTransactionsModule } from './services/master-data/ticket-transactions/ticket-transactions.module';
 
 @Module({
   imports: [
@@ -36,6 +38,8 @@ import { DonationsModule } from './services/master-data/donations/donations.modu
     CommentsModule,
     ComplaintsModule,
     DonationsModule,
+    DonationTransactionsModule,
+    TicketTransactionsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
