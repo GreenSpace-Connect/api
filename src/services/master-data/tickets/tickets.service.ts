@@ -36,6 +36,9 @@ export class TicketsService {
     const tickets = await paginate(this.prisma.ticket, {
       where,
       orderBy: queryDto.getOrderBy,
+      include: {
+        event: true,
+      },
     });
 
     return tickets;
@@ -44,6 +47,9 @@ export class TicketsService {
   async findOne(id: number) {
     const ticket = await this.prisma.ticket.findUnique({
       where: { id },
+      include: {
+        event: true,
+      },
     });
 
     return ticket;

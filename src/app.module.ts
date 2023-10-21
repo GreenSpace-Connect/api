@@ -16,6 +16,7 @@ import { EventsModule } from './services/master-data/events/events.module';
 import { TicketsModule } from './services/master-data/tickets/tickets.module';
 import { CommentsModule } from './services/master-data/comments/comments.module';
 import { ComplaintsModule } from './services/master-data/complaints/complaints.module';
+import { DonationsModule } from './services/master-data/donations/donations.module';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { ComplaintsModule } from './services/master-data/complaints/complaints.m
     TicketsModule,
     CommentsModule,
     ComplaintsModule,
+    DonationsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
