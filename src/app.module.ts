@@ -19,6 +19,7 @@ import { ComplaintsModule } from './services/master-data/complaints/complaints.m
 import { DonationsModule } from './services/master-data/donations/donations.module';
 import { DonationTransactionsModule } from './services/master-data/donation-transactions/donation-transactions.module';
 import { TicketTransactionsModule } from './services/master-data/ticket-transactions/ticket-transactions.module';
+import { UploadModule } from './services/upload/upload.module';
 
 @Module({
   imports: [
@@ -40,6 +41,7 @@ import { TicketTransactionsModule } from './services/master-data/ticket-transact
     DonationsModule,
     DonationTransactionsModule,
     TicketTransactionsModule,
+    UploadModule,
   ],
   controllers: [AppController],
   providers: [AppService],
