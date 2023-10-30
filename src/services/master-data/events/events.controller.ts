@@ -43,8 +43,6 @@ export class EventsController {
   }
 
   @Get()
-  @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
   async findAll(@Query() queryDto: QueryEventDto) {
     const events = await this.eventsService.findAll(queryDto);
 
@@ -57,8 +55,6 @@ export class EventsController {
   }
 
   @Get(':id')
-  @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
   async findOne(@Param('id') id: string) {
     const event = await this.eventsService.findOne(+id);
 

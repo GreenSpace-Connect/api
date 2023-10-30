@@ -20,6 +20,7 @@ export class AuthService {
       where: { email: email },
       include: {
         role: true,
+        community: true,
       },
     });
 

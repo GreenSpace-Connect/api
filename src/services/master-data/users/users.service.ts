@@ -52,6 +52,7 @@ export class UsersService {
       where: { id },
       include: {
         role: true,
+        community: true,
       },
     });
 

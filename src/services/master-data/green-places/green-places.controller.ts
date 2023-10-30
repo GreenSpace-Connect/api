@@ -45,8 +45,6 @@ export class GreenPlacesController {
   }
 
   @Get()
-  @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
   async findAll(@Query() queryDto: QueryGreenPlaceDto) {
     const greenPlaces = await this.greenPlacesService.findAll(queryDto);
 
@@ -61,8 +59,6 @@ export class GreenPlacesController {
   }
 
   @Get(':id')
-  @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
   async findOne(@Param('id') id: string) {
     const greenPlace = await this.greenPlacesService.findOne(+id);
 
