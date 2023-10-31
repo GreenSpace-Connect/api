@@ -11,6 +11,9 @@ export class CommunityEntity implements Community {
   name: string;
 
   @ApiProperty()
+  photo: string;
+
+  @ApiProperty()
   @Exclude()
   picId: number;
 

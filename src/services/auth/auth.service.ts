@@ -9,6 +9,7 @@ import { AuthEntity } from './entities/login.entity';
 import { comparePassword } from 'src/utils/helper/hash.helper';
 import { UserEntity } from '../master-data/users/entities/user.entity';
 import { Role } from 'src/utils/enums/role.enum';
+import { RegisterDto } from './dto/register.dto';
 
 @Injectable()
 export class AuthService {
@@ -75,5 +76,20 @@ export class AuthService {
       accessToken: this.jwtService.sign({ userId: user.id }),
       user: new UserEntity(user),
     };
+  }
+
+  async register(registerDto: RegisterDto) {
+    const adminRole = await this.prisma.role.findUnique({
+      where: { name: Role.USER },
+    });
+
+    const user = await this.prisma.user.create({
+      data: {
+        ...registerDto,
+        roleId: adminRole.id,
+      },
+    });
+
+    return user;
   }
 }

@@ -3,6 +3,8 @@ import { AuthService } from './auth.service';
 import { ApiTags } from '@nestjs/swagger';
 import { LoginDto } from './dto/login.dto';
 import { ResponseEntity } from 'src/utils/entities/response.entity';
+import { RegisterDto } from './dto/register.dto';
+import { UserEntity } from '../master-data/users/entities/user.entity';
 
 @Controller({
   path: 'auth',
@@ -32,6 +34,17 @@ export class AuthController {
       statusCode: HttpStatus.OK,
       message: 'success',
       data: auth,
+    });
+  }
+
+  @Post('register')
+  async create(@Body() registerDto: RegisterDto) {
+    const user = await this.authService.register(registerDto);
+
+    return new ResponseEntity({
+      statusCode: HttpStatus.OK,
+      message: 'created',
+      data: new UserEntity(user),
     });
   }
 }

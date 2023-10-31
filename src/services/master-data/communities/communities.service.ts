@@ -15,6 +15,13 @@ export class CommunitiesService {
       data: createCommunityDto,
     });
 
+    await this.prisma.communityUser.create({
+      data: {
+        communityId: community.id,
+        userId: community.picId,
+      },
+    });
+
     return community;
   }
 
@@ -60,6 +67,19 @@ export class CommunitiesService {
       where: { id },
       data: updateCommunityDto,
     });
+
+    const communityUserFound = await this.prisma.communityUser.findFirst({
+      where: { userId: community.picId },
+    });
+
+    if (!communityUserFound) {
+      await this.prisma.communityUser.create({
+        data: {
+          communityId: community.id,
+          userId: community.picId,
+        },
+      });
+    }
 
     return community;
   }
