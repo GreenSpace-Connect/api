@@ -80,17 +80,6 @@ export class EventsService {
   }
 
   async remove(id: number) {
-    // const [tickets] = await Promise.all([
-    //   this.prisma.ticket.deleteMany({
-    //     where: {
-    //       eventId: id,
-    //     },
-    //   }),
-    //   // this.prisma.donation.dele
-    // ]);
-
-    // console.log('tickets ', tickets);
-
     const event = await this.prisma.event.delete({ where: { id } });
 
     return event;
