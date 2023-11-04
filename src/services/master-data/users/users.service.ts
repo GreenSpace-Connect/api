@@ -5,14 +5,20 @@ import { PrismaService } from 'src/prisma/prisma.service';
 import { createPaginator } from 'prisma-pagination';
 import { QueryUserDto } from './dto/query-user.dto';
 import { Prisma } from '@prisma/client';
+import { hashPassword } from 'src/utils/helper/hash.helper';
 
 @Injectable()
 export class UsersService {
   constructor(private prisma: PrismaService) {}
 
   async create(createUserDto: CreateUserDto) {
+    const password = await hashPassword(createUserDto.password);
+
     const user = await this.prisma.user.create({
-      data: createUserDto,
+      data: {
+        ...createUserDto,
+        password,
+      },
     });
 
     return user;

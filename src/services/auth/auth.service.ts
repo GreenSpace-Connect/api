@@ -6,7 +6,7 @@ import {
 import { JwtService } from '@nestjs/jwt';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { AuthEntity } from './entities/login.entity';
-import { comparePassword } from 'src/utils/helper/hash.helper';
+import { comparePassword, hashPassword } from 'src/utils/helper/hash.helper';
 import { UserEntity } from '../master-data/users/entities/user.entity';
 import { Role } from 'src/utils/enums/role.enum';
 import { RegisterDto } from './dto/register.dto';
@@ -83,10 +83,13 @@ export class AuthService {
       where: { name: Role.USER },
     });
 
+    const password = await hashPassword(registerDto.password);
+
     const user = await this.prisma.user.create({
       data: {
         ...registerDto,
         roleId: adminRole.id,
+        password,
       },
     });
 
