@@ -43,8 +43,6 @@ export class ComplaintsController {
   }
 
   @Get()
-  @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
   async findAll(@Query() queryDto: QueryComplaintDto) {
     const complaints = await this.complaintsService.findAll(queryDto);
 
@@ -57,8 +55,6 @@ export class ComplaintsController {
   }
 
   @Get(':id')
-  @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
   async findOne(@Param('id') id: string) {
     const complaint = await this.complaintsService.findOne(+id);
 

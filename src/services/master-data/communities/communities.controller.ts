@@ -59,8 +59,6 @@ export class CommunitiesController {
   }
 
   @Get(':id')
-  @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
   async findOne(@Param('id') id: string) {
     const community = await this.communitiesService.findOne(+id);
 
@@ -76,8 +74,6 @@ export class CommunitiesController {
   }
 
   @Patch(':id')
-  @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
   async update(
     @Param('id') id: string,
     @Body() updateCommunityDto: UpdateCommunityDto,

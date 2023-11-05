@@ -49,8 +49,6 @@ export class DonationTransactionsController {
   }
 
   @Get()
-  @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
   async findAll(@Query() queryDto: QueryDonationTransactionDto) {
     const donationTransactions = await this.donationTransactionsService.findAll(
       queryDto,
@@ -68,8 +66,6 @@ export class DonationTransactionsController {
   }
 
   @Get(':id')
-  @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
   async findOne(@Param('id') id: string) {
     const donationTransaction = await this.donationTransactionsService.findOne(
       +id,

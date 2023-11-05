@@ -43,8 +43,6 @@ export class BasecampsController {
   }
 
   @Get()
-  @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
   async findAll(@Query() queryDto: QueryBasecampDto) {
     const basecamps = await this.basecampsService.findAll(queryDto);
 
@@ -57,8 +55,6 @@ export class BasecampsController {
   }
 
   @Get(':id')
-  @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
   async findOne(@Param('id') id: string) {
     const basecamp = await this.basecampsService.findOne(+id);
 

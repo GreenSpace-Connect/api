@@ -43,8 +43,6 @@ export class CommentsController {
   }
 
   @Get()
-  @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
   async findAll(@Query() queryDto: QueryCommentDto) {
     const comments = await this.commentsService.findAll(queryDto);
 
@@ -57,8 +55,6 @@ export class CommentsController {
   }
 
   @Get(':id')
-  @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
   async findOne(@Param('id') id: string) {
     const comment = await this.commentsService.findOne(+id);
 

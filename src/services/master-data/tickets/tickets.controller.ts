@@ -43,8 +43,6 @@ export class TicketsController {
   }
 
   @Get()
-  @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
   async findAll(@Query() queryDto: QueryTicketDto) {
     const tickets = await this.ticketsService.findAll(queryDto);
 
@@ -57,8 +55,6 @@ export class TicketsController {
   }
 
   @Get(':id')
-  @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
   async findOne(@Param('id') id: string) {
     const ticket = await this.ticketsService.findOne(+id);
 
