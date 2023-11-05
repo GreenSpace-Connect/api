@@ -36,6 +36,9 @@ export class EventsService {
     if (queryDto.districtId) {
       where.districtId = queryDto.districtId;
     }
+    if (queryDto.placeName) {
+      where.placeName = queryDto.placeName;
+    }
 
     const paginate = createPaginator({
       perPage: queryDto.perPage,

@@ -30,6 +30,9 @@ export class QueryEventDto {
   @IsOptional()
   search?: string;
 
+  @IsOptional()
+  placeName?: string;
+
   @Transform(({ value }) => toNumber(value, { default: 1, min: 1 }))
   @IsOptional()
   communityId?: number;
