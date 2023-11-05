@@ -69,14 +69,14 @@ export class CommunitiesService {
     });
 
     const communityUserFound = await this.prisma.communityUser.findFirst({
-      where: { userId: community.picId },
+      where: { userId: updateCommunityDto.picId },
     });
 
     if (!communityUserFound) {
       await this.prisma.communityUser.create({
         data: {
-          communityId: community.id,
-          userId: community.picId,
+          communityId: id,
+          userId: updateCommunityDto.picId,
         },
       });
     }
