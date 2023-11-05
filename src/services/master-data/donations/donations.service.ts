@@ -38,6 +38,7 @@ export class DonationsService {
       orderBy: queryDto.getOrderBy,
       include: {
         event: true,
+        donationTransaction: true,
       },
     });
 
@@ -49,6 +50,7 @@ export class DonationsService {
       where: { id },
       include: {
         event: true,
+        donationTransaction: true,
       },
     });
 

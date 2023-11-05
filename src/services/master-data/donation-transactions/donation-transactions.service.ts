@@ -39,7 +39,11 @@ export class DonationTransactionsService {
         where,
         orderBy: queryDto.getOrderBy,
         include: {
-          donation: true,
+          donation: {
+            include: {
+              event: true,
+            },
+          },
           user: true,
         },
       },
@@ -53,7 +57,11 @@ export class DonationTransactionsService {
       await this.prisma.donationTransaction.findUnique({
         where: { id },
         include: {
-          donation: true,
+          donation: {
+            include: {
+              event: true,
+            },
+          },
           user: true,
         },
       });

@@ -2,6 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { Donation } from '@prisma/client';
 import { Exclude } from 'class-transformer';
 import { EventEntity } from '../../events/entities/event.entity';
+import { DonationTransactionEntity } from '../../donation-transactions/entities/donation-transaction.entity';
 
 export class DonationEntity implements Donation {
   @ApiProperty()
@@ -30,6 +31,9 @@ export class DonationEntity implements Donation {
   event?: EventEntity;
 
   @ApiProperty()
+  donationTransaction?: DonationTransactionEntity[];
+
+  @ApiProperty()
   createdAt: Date;
 
   @ApiProperty()
@@ -43,6 +47,12 @@ export class DonationEntity implements Donation {
 
     if (partial.event) {
       this.event = new EventEntity(partial.event);
+    }
+
+    if (partial.donationTransaction) {
+      this.donationTransaction = partial.donationTransaction.map(
+        (item) => new DonationTransactionEntity(item),
+      );
     }
   }
 }

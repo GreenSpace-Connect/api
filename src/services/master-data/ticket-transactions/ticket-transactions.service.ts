@@ -37,7 +37,11 @@ export class TicketTransactionsService {
       where,
       orderBy: queryDto.getOrderBy,
       include: {
-        ticket: true,
+        ticket: {
+          include: {
+            event: true,
+          },
+        },
         user: true,
       },
     });
@@ -49,7 +53,11 @@ export class TicketTransactionsService {
     const ticketTransaction = await this.prisma.ticketTransaction.findUnique({
       where: { id },
       include: {
-        ticket: true,
+        ticket: {
+          include: {
+            event: true,
+          },
+        },
         user: true,
       },
     });

@@ -26,8 +26,8 @@ model User {
   CommunityUser       CommunityUser[]
   Comment             Comment[]
   Complaint           Complaint[]
-  DonationTransaction DonationTransaction[]
-  TicketTransaction   TicketTransaction[]
+  donationTransaction DonationTransaction[]
+  ticketTransaction   TicketTransaction[]
 }
 
 model Role {
@@ -166,7 +166,7 @@ model Ticket {
   createdAt         DateTime            @default(now())
   updatedAt         DateTime            @updatedAt
   deletedAt         DateTime?
-  TicketTransaction TicketTransaction[]
+  ticketTransaction TicketTransaction[]
 }
 
 model Donation {
@@ -181,7 +181,7 @@ model Donation {
   createdAt           DateTime              @default(now())
   updatedAt           DateTime              @updatedAt
   deletedAt           DateTime?
-  DonationTransaction DonationTransaction[]
+  donationTransaction DonationTransaction[]
 }
 
 model Comment {
